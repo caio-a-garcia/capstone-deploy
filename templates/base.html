@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Grupos REP - {% block title %}{% endblock %}</title>
+  </head>
+  <body class="container">
+    <h1>{% block header %}{% endblock %}</h1>
+    {% block content %}{% endblock %}
+  </body>
+</html>

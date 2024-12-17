@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados{% endblock %}
+{% block header %}Grupos REP{% endblock %}
+
+{% block content %}
+  <table>
+    <tr>
+      <th>Grupo</th>
+      <th>Membros</th>
+      <th>Proficiência</th>
+      <th>Estágio de ferias</th>
+      <th>Dupla titulação</th>
+      <th>Turma</th>
+    </tr>
+    {% for group, info in summary.iterrows() %}
+      <tr>
+        <td>{{ group }}</td>
+        <td>{{ info['E-mail'] | int() }}</td>
+        <td>{{ info['Proficiencias'] | int() }}</td>
+        <td>{{ (info['Estagio de ferias'] * 100) | int(0) }}%</td>
+        <td>{{ info['Dupla titulacao'] | int() }}</td>
+        <td>{{ info['Turma'] | int() }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <form action="/download_results" method="post">
+    <input type="hidden" name="filepath" value={{ results_filepath }}>
+    <input type="submit" value="Baixar arquivo">
+  </form>
+{% endblock %}

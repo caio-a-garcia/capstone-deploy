@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block header %}Sorteio de Grupos do REP{% endblock %}
+
+{% block content %}
+  <form action="/" method="post" enctype="multipart/form-data">
+    <h2>Formulário</h2>
+    <input type="file" name="survey" accept=".xlsx, .xls" required>
+
+    <h2>Controle de Alunos</h2>
+    <input type="file" name="control" accept=".xlsx, .xls">
+    </br>
+    <button type="submit" style="margin-top: 30px;">Upload</button>
+  </form>
+{% endblock %}

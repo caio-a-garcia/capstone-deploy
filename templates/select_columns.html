@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Selecao de Dados{% endblock %}
+{% block header %}Sorteio de Grupos do REP{% endblock %}
+
+{% block content %}
+<p>Selecione as informacoes a serem passadas para o modelo:</p>
+<ul>Para o campo E-mail selecione em cada coluna o campo referente ao e-mail do Insper naquela planilha. Esse campo sera usado para relacionar as planilhas.</ul>
+<ul>Para os demais campos, favor selecionar um campo por linha. A coluna com um campo selecionado naquela linha indicara de qual planilha devera ser puxada a informacao em questao.</ul>
+
+<form action="model" method="post">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        {% for filename in column_names.keys() %}
+          <th>{{ filename }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for option in variables %}
+        <tr>
+          <th>{{ option }}</th>
+          {% for filename in column_names.keys() %}
+            <td>
+              <select name="{{ option }}__{{ filename }}">
+                <option value=""></option>
+                {% for column_name in column_names[filename] %}
+                  <option valuealue="{{ column_name }}">{{ column_name }}</option>
+                {% endfor %}
+                </select>
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="submit" style="margin-top: 30px;">Submit</button>
+</form>
+{% endblock %}

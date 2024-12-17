@@ -1,0 +1,38 @@
+/* General reset for margins and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: Arial, sans-serif;
+}
+
+/* Centered container */
+.container {
+    max-width: 800px; /* Adjust maximum width as needed */
+    margin: 0 auto; /* Center horizontally */
+    padding: 20px; /* Inner spacing */
+    /*background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8;
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: auto;
+    border: 1px solid #ddd;
+    max-height: 80vh;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #f9f9f9
+}
